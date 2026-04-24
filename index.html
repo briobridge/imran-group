@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imran Group of Companies — Est. 1972</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE5D4;
+    --parchment: #E8DFC8;
+    --gold: #9A7B3A;
+    --gold-light: #C4A35A;
+    --gold-pale: #E8D5A0;
+    --gold-dark: #6B5228;
+    --ink: #1A1510;
+    --ink-mid: #2E2618;
+    --ink-muted: #5C4E38;
+    --ink-faint: #8A7A62;
+    --burgundy: #6B1E2A;
+    --burgundy-dark: #4A1218;
+    --burgundy-light: #8B2E3E;
+    --rule: #C4A35A;
+    --border-thin: 1px solid #C4A35A;
+    --border-double-gap: 3px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* Texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(154,123,58,0.015) 2px, rgba(154,123,58,0.015) 3px),
+      repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(154,123,58,0.01) 4px, rgba(154,123,58,0.01) 5px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ============ NAV ============ */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(26,21,16,0.97);
+    border-bottom: 1px solid var(--gold-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    height: 60px;
+  }
+
+  .nav-monogram {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--cream-dark);
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0.75;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--gold-light); }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink-mid);
+    overflow: hidden;
+    padding: 120px 60px 80px;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(154,123,58,0.08) 0%, transparent 70%),
+      repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(154,123,58,0.03) 30px, rgba(154,123,58,0.03) 31px),
+      repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(154,123,58,0.02) 30px, rgba(154,123,58,0.02) 31px);
+  }
+
+  .hero-border {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(196,163,90,0.25);
+    pointer-events: none;
+  }
+
+  .hero-border::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(196,163,90,0.12);
+  }
+
+  /* Corner ornaments */
+  .hero-border::after {
+    content: '✦';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 14px;
+    background: var(--ink-mid);
+    padding: 0 8px;
+  }
+
+  .corner-ornament {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: rgba(196,163,90,0.4);
+    border-style: solid;
+  }
+
+  .corner-ornament.tl { top: 20px; left: 20px; border-width: 1px 0 0 1px; }
+  .corner-ornament.tr { top: 20px; right: 20px; border-width: 1px 1px 0 0; }
+  .corner-ornament.bl { bottom: 20px; left: 20px; border-width: 0 0 1px 1px; }
+  .corner-ornament.br { bottom: 20px; right: 20px; border-width: 0 1px 1px 0; }
+
+  .hero-content { position: relative; z-index: 2; text-align: center; max-width: 860px; }
+
+  .hero-est {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero-est::before, .hero-est::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: var(--gold-dark);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 88px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .hero-rule {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .hero-rule span { width: 80px; height: 1px; background: var(--gold-dark); }
+  .hero-rule i { color: var(--gold); font-size: 10px; font-style: normal; }
+
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(245,240,232,0.6);
+    max-width: 540px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid var(--gold-dark);
+    padding: 14px 40px;
+    transition: all 0.3s;
+    background: transparent;
+  }
+
+  .hero-cta:hover {
+    background: var(--gold-dark);
+    color: var(--cream);
+    border-color: var(--gold-dark);
+  }
+
+  /* ============ SECTIONS ============ */
+  section { position: relative; z-index: 1; }
+
+  .section-inner { max-width: 1160px; margin: 0 auto; padding: 0 60px; }
+
+  /* ============ DIVIDER ============ */
+  .ornamental-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .ornamental-divider .line { flex: 1; height: 1px; background: var(--parchment); max-width: 200px; }
+  .ornamental-divider .glyph {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  /* ============ STRIP BAND ============ */
+  .gold-band {
+    background: var(--ink);
+    border-top: 1px solid var(--gold-dark);
+    border-bottom: 1px solid var(--gold-dark);
+    padding: 18px 60px;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .gold-band-stat { text-align: center; }
+
+  .gold-band-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+    line-height: 1.1;
+  }
+
+  .gold-band-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  /* ============ ABOUT ============ */
+  .about-section {
+    background: var(--cream);
+    padding: 100px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+
+  .section-title em { font-style: italic; color: var(--burgundy); }
+
+  .section-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .about-seal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .seal-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1px solid var(--gold-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background: var(--cream-dark);
+  }
+
+  .seal-circle::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    border: 1px dashed rgba(154,123,58,0.4);
+  }
+
+  .seal-monogram {
+    font-family: 'Cinzel', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: 0.05em;
+  }
+
+  .seal-latin {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    margin-top: 6px;
+  }
+
+  .seal-year {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  .about-values {
+    list-style: none;
+    margin-top: 24px;
+  }
+
+  .about-values li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--ink-muted);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--parchment);
+    text-transform: uppercase;
+  }
+
+  .about-values li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 8px;
+    flex-shrink: 0;
+  }
+
+  .about-text p {
+    font-size: 18px;
+    color: var(--ink-mid);
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  .about-text p:first-child::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 600;
+    float: left;
+    line-height: 0.75;
+    margin-right: 8px;
+    margin-top: 12px;
+    color: var(--burgundy);
+  }
+
+  .about-text blockquote {
+    border-left: 2px solid var(--gold);
+    margin: 30px 0;
+    padding: 8px 28px;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--burgundy-dark);
+    line-height: 1.7;
+  }
+
+  /* ============ COMPANIES ============ */
+  .companies-section {
+    background: var(--ink-mid);
+    padding: 100px 0;
+  }
+
+  .companies-section .section-title { color: var(--cream); }
+  .companies-section .section-eyebrow { color: var(--gold); }
+  .companies-section .section-rule { background: var(--gold-dark); }
+
+  .companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2px;
+    margin-top: 8px;
+    border: 1px solid rgba(196,163,90,0.2);
+  }
+
+  .company-card {
+    background: rgba(26,21,16,0.6);
+    border: 1px solid rgba(196,163,90,0.12);
+    padding: 44px 36px;
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+    overflow: hidden;
+  }
+
+  .company-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold-dark);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+    transform-origin: left;
+  }
+
+  .company-card:hover::before { transform: scaleX(1); }
+
+  .company-card:hover {
+    background: rgba(107,82,40,0.15);
+  }
+
+  .company-sector {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .company-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .company-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .company-footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(196,163,90,0.15);
+    padding-top: 20px;
+  }
+
+  .company-year {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold-dark);
+  }
+
+  .company-divider { flex: 1; height: 1px; background: rgba(196,163,90,0.1); }
+
+  .company-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(196,163,90,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--gold);
+  }
+
+  /* ============ LEADERSHIP ============ */
+  .leadership-section {
+    background: var(--cream-dark);
+    padding: 100px 0;
+    border-top: 1px solid var(--parchment);
+  }
+
+  .leadership-card {
+    background: var(--cream);
+    border: 1px solid var(--parchment);
+    padding: 52px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 52px;
+    align-items: start;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .chairman-seal {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid var(--gold-dark);
+    flex-shrink: 0;
+  }
+
+  .chairman-initials {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .chairman-title {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .chairman-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+
+  .chairman-role {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .chairman-bio {
+    font-size: 17px;
+    color: var(--ink-muted);
+    line-height: 1.85;
+    font-style: italic;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact-section {
+    background: var(--ink);
+    padding: 100px 0 0;
+  }
+
+  .contact-section .section-title { color: var(--cream); }
+  .contact-section .section-eyebrow { color: var(--gold); }
+  .contact-section .section-rule { background: var(--gold-dark); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 64px;
+  }
+
+  .contact-block h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(196,163,90,0.2);
+  }
+
+  .contact-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+
+  .contact-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    min-width: 60px;
+    padding-top: 2px;
+  }
+
+  .contact-value {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: rgba(245,240,232,0.75);
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  a.contact-value:hover { color: var(--gold-light); }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    padding: 12px 16px;
+    border: 1px solid rgba(196,163,90,0.12);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .social-link:hover {
+    border-color: rgba(196,163,90,0.4);
+    background: rgba(196,163,90,0.05);
+  }
+
+  .social-platform {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    min-width: 90px;
+  }
+
+  .social-handle {
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    color: rgba(245,240,232,0.6);
+  }
+
+  .social-arrow {
+    margin-left: auto;
+    color: var(--gold-dark);
+    font-size: 14px;
+  }
+
+  /* ============ MAP ============ */
+  .map-wrapper {
+    margin-top: 80px;
+    height: 420px;
+    border-top: 1px solid rgba(196,163,90,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(0.4) sepia(0.25) contrast(0.9);
+    opacity: 0.85;
+  }
+
+  .map-pin-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: none;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: rgba(15,12,8,0.97);
+    border-top: 1px solid var(--gold-dark);
+    padding: 48px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-left {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--cream-dark);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-left span { color: var(--gold); }
+
+  .footer-right {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(196,163,90,0.1);
+    margin: 20px 0;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .footer-nav a {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--ink-faint);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover { color: var(--gold); }
+
+  /* ============ SCROLL ANIMATIONS ============ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s, transform 0.8s;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 9px; }
+    .section-inner { padding: 0 24px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .leadership-card { grid-template-columns: 1fr; text-align: center; }
+    .chairman-seal { margin: 0 auto; }
+    footer { padding: 40px 24px; }
+    .gold-band { padding: 18px 24px; gap: 30px; }
+    .hero { padding: 100px 24px 60px; }
+    .companies-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-monogram">I · G · C</div>
+  <ul class="nav-links">
+    <li><a href="#about">Heritage</a></li>
+    <li><a href="#companies">Portfolio</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-border"></div>
+  <div class="corner-ornament tl"></div>
+  <div class="corner-ornament tr"></div>
+  <div class="corner-ornament bl"></div>
+  <div class="corner-ornament br"></div>
+
+  <div class="hero-content">
+    <p class="hero-est">Est. &nbsp; 1972 &nbsp; · &nbsp; Lahore</p>
+    <h1 class="hero-title"><em>Imran</em><br>Group of Companies</h1>
+    <div class="hero-rule">
+      <span></span>
+      <i>✦</i>
+      <span></span>
+    </div>
+    <p class="hero-subtitle">Diversified Excellence · Enduring Legacy</p>
+    <p class="hero-tagline">Forged in the tradition of enterprise, built upon the pillars of integrity, and destined for generations to come.</p>
+    <a href="#about" class="hero-cta">Discover Our Heritage</a>
+  </div>
+</section>
+
+<!-- GOLD BAND STATS -->
+<div class="gold-band">
+  <div class="gold-band-stat">
+    <span class="gold-band-num">52+</span>
+    <span class="gold-band-label">Years of Excellence</span>
+  </div>
+  <div class="gold-band-stat">
+    <span class="gold-band-num">5</span>
+    <span class="gold-band-label">Subsidiary Companies</span>
+  </div>
+  <div class="gold-band-stat">
+    <span class="gold-band-num">1,200+</span>
+    <span class="gold-band-label">Professionals</span>
+  </div>
+  <div class="gold-band-stat">
+    <span class="gold-band-num">PKR 12B</span>
+    <span class="gold-band-label">Annual Turnover</span>
+  </div>
+  <div class="gold-band-stat">
+    <span class="gold-band-num">3</span>
+    <span class="gold-band-label">Provinces</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Our Heritage</p>
+      <h2 class="section-title">A Legacy of <em>Distinction</em></h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-seal fade-up">
+        <div class="seal-circle">
+          <span class="seal-monogram">IG</span>
+          <span class="seal-latin">Veritas et Industria</span>
+        </div>
+        <p class="seal-year">LAHORE · GULBERG · MCMLXXII</p>
+        <ul class="about-values">
+          <li>Integrity in all undertakings</li>
+          <li>Excellence without compromise</li>
+          <li>Legacy over immediacy</li>
+          <li>Community & stewardship</li>
+        </ul>
+      </div>
+
+      <div class="about-text fade-up">
+        <p>Founded in 1972 amidst the burgeoning commercial landscape of Lahore, the Imran Group of Companies has evolved from a singular mercantile venture into one of Punjab's most respected conglomerates. Our founding patriarch established this enterprise upon the unshakeable conviction that commerce, conducted with honour, is the highest form of public service.</p>
+
+        <blockquote>"A man's business is a mirror of his character — and ours shall reflect only the finest."</blockquote>
+
+        <p>Over five decades, the Group has navigated economic vicissitudes, political transitions, and market upheavals with a composure born of deep institutional knowledge. Each subsidiary under our banner has been cultivated with patience, guided by principle, and staffed by professionals of the highest calibre.</p>
+
+        <p>From the premium real estate developments that define Lahore's skyline, to the technological ventures shaping the commerce of tomorrow, the Imran Group continues its tradition of dignified, purposeful enterprise — ever mindful that what we build today forms the inheritance of those who follow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANIES -->
+<section class="companies-section" id="companies">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Our Portfolio</p>
+      <h2 class="section-title">The <em>Companies</em></h2>
+      <div class="section-rule"></div>
+    </div>
+  </div>
+
+  <div style="max-width:1160px;margin:48px auto 0;padding:0 60px;">
+    <div class="companies-grid fade-up">
+
+      <!-- Laptop King -->
+      <div class="company-card">
+        <p class="company-sector">Technology &amp; Retail</p>
+        <h3 class="company-name">Laptop King</h3>
+        <p class="company-desc">Pakistan's foremost authority in premium computing and technology retail. From flagship laptops and workstations to enterprise IT solutions, Laptop King sets the standard for excellence in the digital marketplace. With showrooms across Lahore's most distinguished commercial addresses, we serve discerning clientele who accept nothing but the finest in technology.</p>
+        <div class="company-footer">
+          <span class="company-year">Est. 2003</span>
+          <span class="company-divider"></span>
+          <div class="company-icon">⌨</div>
+        </div>
+      </div>
+
+      <!-- Imran Properties -->
+      <div class="company-card">
+        <p class="company-sector">Real Estate &amp; Development</p>
+        <h3 class="company-name">Imran Properties</h3>
+        <p class="company-desc">A venerable name in Lahore's property landscape, Imran Properties develops, manages, and brokers real estate of singular distinction. Our portfolio encompasses commercial towers in Gulberg and DHA, luxury residential communities, and curated retail spaces. We do not merely build structures — we craft the enduring environments in which legacies are lived.</p>
+        <div class="company-footer">
+          <span class="company-year">Est. 1972</span>
+          <span class="company-divider"></span>
+          <div class="company-icon">⌂</div>
+        </div>
+      </div>
+
+      <!-- Imran Trading Co. -->
+      <div class="company-card">
+        <p class="company-sector">International Trade</p>
+        <h3 class="company-name">Imran Trading Co.</h3>
+        <p class="company-desc">The original cornerstone of the Imran Group, our trading house has, for over half a century, maintained commercial relationships across the subcontinent, the Gulf States, and Europe. Specialising in commodities, textiles, and industrial goods, Imran Trading Co. commands respect born of reliability and a network cultivated through generations of honourable dealing.</p>
+        <div class="company-footer">
+          <span class="company-year">Est. 1975</span>
+          <span class="company-divider"></span>
+          <div class="company-icon">⚓</div>
+        </div>
+      </div>
+
+      <!-- Crescent Hospitality -->
+      <div class="company-card">
+        <p class="company-sector">Hospitality &amp; Leisure</p>
+        <h3 class="company-name">Crescent Hospitality</h3>
+        <p class="company-desc">Purveyors of refined hospitality, Crescent operates boutique hotels and exclusive banqueting facilities in Lahore and Islamabad. Our establishments are distinguished by an unwavering attention to detail — from the thread count of our linens to the provenance of our cuisine — catering to a clientele for whom comfort and decorum are non-negotiable.</p>
+        <div class="company-footer">
+          <span class="company-year">Est. 1995</span>
+          <span class="company-divider"></span>
+          <div class="company-icon">✦</div>
+        </div>
+      </div>
+
+      <!-- Gulberg Capital -->
+      <div class="company-card">
+        <p class="company-sector">Financial Services</p>
+        <h3 class="company-name">Gulberg Capital</h3>
+        <p class="company-desc">The Group's financial services arm, Gulberg Capital provides bespoke investment advisory, asset management, and private equity solutions to high-net-worth individuals and institutional clients. Guided by a philosophy of prudent stewardship and long-horizon thinking, we manage wealth with the same care and foresight that built the Imran Group itself.</p>
+        <div class="company-footer">
+          <span class="company-year">Est. 2010</span>
+          <span class="company-divider"></span>
+          <div class="company-icon">◈</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leadership-section" id="leadership">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Leadership</p>
+      <h2 class="section-title">The <em>Steward</em></h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="leadership-card fade-up">
+      <div class="chairman-seal">
+        <span class="chairman-initials">MI</span>
+        <span class="chairman-title">Chairman</span>
+      </div>
+      <div>
+        <h3 class="chairman-name">Mr. Imran Ahmed</h3>
+        <p class="chairman-role">Founder &amp; Chairman — Imran Group of Companies</p>
+        <p class="chairman-bio">A man forged in the finest traditions of Lahori enterprise, Mr. Imran Ahmed has dedicated five decades to the building of an institution that bears not merely a name, but a philosophy. Educated at Government College Lahore and subsequently at the London School of Economics, he returned to his homeland with a vision that has since shaped the commercial landscape of Punjab. Under his stewardship, the Group has grown from a solitary trading house to a diversified conglomerate — always, as he insists, "brick by patient brick."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-inner">
+    <div class="section-header fade-up">
+      <p class="section-eyebrow">Correspondence</p>
+      <h2 class="section-title">Make <em>Contact</em></h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="contact-grid fade-up">
+      <div>
+        <div class="contact-block">
+          <h3>Registered Office</h3>
+          <div class="contact-item">
+            <span class="contact-label">Address</span>
+            <span class="contact-value">12-B, Main Boulevard Gulberg,<br>Lahore, Punjab 54660,<br>Pakistan</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Telephone</span>
+            <a class="contact-value" href="tel:+924235761234">+92 (42) 3576-1234</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Mobile</span>
+            <a class="contact-value" href="tel:+923001234567">+92 300 123 4567</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a class="contact-value" href="mailto:enquiries@imrangroup.com.pk">enquiries@imrangroup.com.pk</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Hours</span>
+            <span class="contact-value">Mon – Sat &nbsp;·&nbsp; 9:00 am – 6:00 pm</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-block">
+          <h3>Social Presence</h3>
+          <div class="social-links">
+            <a class="social-link" href="https://www.linkedin.com/company/imran-group" target="_blank" rel="noopener">
+              <span class="social-platform">LinkedIn</span>
+              <span class="social-handle">/company/imran-group</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a class="social-link" href="https://www.facebook.com/ImranGroupLahore" target="_blank" rel="noopener">
+              <span class="social-platform">Facebook</span>
+              <span class="social-handle">@ImranGroupLahore</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a class="social-link" href="https://www.instagram.com/imrangrouppk" target="_blank" rel="noopener">
+              <span class="social-platform">Instagram</span>
+              <span class="social-handle">@imrangrouppk</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a class="social-link" href="https://twitter.com/ImranGroupPK" target="_blank" rel="noopener">
+              <span class="social-platform">X / Twitter</span>
+              <span class="social-handle">@ImranGroupPK</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a class="social-link" href="https://www.youtube.com/@ImranGroupPK" target="_blank" rel="noopener">
+              <span class="social-platform">YouTube</span>
+              <span class="social-handle">@ImranGroupPK</span>
+              <span class="social-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="map-wrapper">
+    <iframe
+      title="Imran Group of Companies – Gulberg, Lahore"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.056476847016!2d74.33549697541854!3d31.510985574207898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190471e04bcde9%3A0x3a7a1e8d4a9f2b2a!2sMain%20Boulevard%20Gulberg%2C%20Lahore%2C%20Punjab!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-left">Imran <span>Group</span> of Companies</div>
+    <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.2em;color:#5C4E38;margin-top:6px;">GULBERG · LAHORE · PAKISTAN</div>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="#about">Heritage</a></li>
+    <li><a href="#companies">Portfolio</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-right">
+    <div>© 2024 Imran Group of Companies</div>
+    <div style="margin-top:4px;">Veritas et Industria — Est. 1972</div>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 100);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
